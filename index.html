@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet/less" type="text/css" href="./style.less" />
+
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <div class="header-wrapper">
+            <div class="left"></div>
+            <div class="center">
+                <div class="center-top  textCenter">
+                    昆明市润城第一幼儿园人脸识别监控系统
+                </div>
+                <div class="center-bottom">
+                    <div class="before"></div>
+                    <div class="content">
+                        <p>
+                            <span>2019-11-01</span>&nbsp;&nbsp;
+                            <span>星期五</span>&nbsp;&nbsp;
+                            <span>11:43</span>
+                        </p>
+                    </div>
+                    <div class="after"></div>
+                </div>
+            </div>
+            <div class="right"></div>
+        </div>
+
+        <div class="body-wrapper">
+            <div class="size size1">
+                <div class="border top-left-border"></div>
+                <div class="border top-right-border"></div>
+                <div class="border bottom-left-border"></div>
+                <div class="border bottom-right-border"></div>
+                <div class="Gateway-title">
+                    <p class="title">视频监控卡口</p>
+                    <span class="more">更多 >></span>
+                </div>
+                <div class="size size4">
+                    <div class="border top-left-border"></div>
+                    <div class="border top-right-border"></div>
+                    <div class="border bottom-left-border"></div>
+                    <div class="border bottom-right-border"></div>
+                    校园东门
+                </div>
+                <div class="size size4">
+                    <div class="border top-left-border"></div>
+                    <div class="border top-right-border"></div>
+                    <div class="border bottom-left-border"></div>
+                    <div class="border bottom-right-border"></div>
+                    校园北门
+                </div>
+                <div class="size size4">
+                    <div class="border top-left-border"></div>
+                    <div class="border top-right-border"></div>
+                    <div class="border bottom-left-border"></div>
+                    <div class="border bottom-right-border"></div>
+                    教学楼北侧
+                </div>
+                <div class="size size4">
+                    <div class="border top-left-border"></div>
+                    <div class="border top-right-border"></div>
+                    <div class="border bottom-left-border"></div>
+                    <div class="border bottom-right-border"></div>
+                    教学楼西侧
+                </div>
+            </div>
+            <div class="size size5">
+                <div class="border top-left-border"></div>
+                <div class="border top-right-border"></div>
+                <div class="border bottom-left-border"></div>
+                <div class="border bottom-right-border"></div>
+                <div class="Gateway-title">
+                    <p class="title">统计中心</p>
+                </div>
+                <div id="main" style="width: 280px;height:200px;"></div>
+            </div>
+            <div class="size size2">
+                <div class="border top-left-border"></div>
+                <div class="border top-right-border"></div>
+                <div class="border bottom-left-border"></div>
+                <div class="border bottom-right-border"></div>
+                <div class="Gateway-title">
+                    <p class="title">楼道卡口2：监控画面</p>
+                </div>
+                <div class="pic">
+                    <img src="./img/pic01.png" alt="" class="pictemp">
+                </div>
+            </div>
+            <div class="size size3">
+                <div class="border top-left-border"></div>
+                <div class="border top-right-border"></div>
+                <div class="border bottom-left-border"></div>
+                <div class="border bottom-right-border"></div>
+                <div class="rightpic">
+                    <img src="./img/pic03.png" alt="" class="picright">
+                </div>
+            </div>
+
+            <div class="size sizebottom">
+                <div class="border top-left-border"></div>
+                <div class="border top-right-border"></div>
+                <div class="border bottom-left-border"></div>
+                <div class="border bottom-right-border"></div>
+                <div class="bottompic">
+                    <div class="lefttip">
+                        <p class="tiptittle">人员出入记录</p>
+                        <img src="./img/tip.png" alt="">
+                    </div>
+                    <img src="./img/pic02.png" alt="" class="picbottom">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts.min.js"></script>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // app.title = '环形图';
+
+    var option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        color:['#ff0000','#5d4af4','#19d1ff'],
+        legend: {
+            orient: 'vertical',
+            x: 'right',
+            data: ['危险人数', '学生人数', '家长人数'],
+            textStyle: {
+              color: '#fff'  // 图例文字颜色
+            }
+        },
+        series: [{
+            name: '访问来源',
+            type: 'pie',
+            radius: ['50%', '70%'],
+            center: ['30%', '40%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data: [
+                {
+                    value: 2,
+                    name: '危险人数'
+                },
+                {
+                    value: 40,
+                    name: '家长人数'
+                },
+                {
+                    value: 60,
+                    name: '学生人数'
+                }
+            ]
+        }]
+    };
+
+
+    myChart.setOption(option);
+</script>
+
+</html>
